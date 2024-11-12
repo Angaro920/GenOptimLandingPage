@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f8f6;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #007b3e;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.sidebar li:hover {
+    background-color: #005c2f;
+    cursor: pointer;
+    transform: translateX(5px);
+}
+
+/* Main Content Styles */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f8f6;
+}
+
+.content-section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,123,62,0.1);
+    border-left: 4px solid #007b3e;
+}
+
+h1, h2, h3 {
+    color: #007b3e;
+    margin-bottom: 15px;
+}
+
+
+.method {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.parameters, .return-value {
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.parameters {
+    background-color: #f8f9fa;
+}
+
+.return-value {
+    background-color: #e0f2e9;
+}
+
+pre {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 10px 0;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.tag {
+    background-color: #007b3e;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin-right: 5px;
+}
+
+.category {
+    margin-top: 30px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: white;
+    color:#007b3e;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top-btn:hover {
+    background-color: #005c2f;
+    transform: translateY(-3px);
+}
+
+/* Añadimos más contenido para hacer scroll */
+.spacer {
+    height: 800px; /* Para demostrar el scroll */
+}
+
+.note {
+    background-color: #e0f2e9;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+.warning {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.info{
+    color: black;
+}
+.dev-image {
+    width: 150px;            /* Tamaño de la imagen */
+    height: 150px;           /* Asegura una proporción cuadrada */
+    border-radius: 50%;      /* Borde redondeado para un efecto circular */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border: 3px solid #007b3e; /* Borde de color para que resalte */
+    margin-bottom: 15px;     /* Espacio debajo de la imagen */
+}

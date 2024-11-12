@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Documentacion - GenOptim</title>
+  </head>
+  <body>
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <h2 style="color: white;"><a href="index.html">GenOptim</a></h2>
+      <ul>
+        <li><a href="index.html#instalacion">📦 Instalación</a></li>
+        <li><a href="documentacion.html">📚 Documentación</a></li>
+        <li><a href="index.html#ejemplo">💡 Ejemplos</a></li>
+        <li><a href="apiReferenfe.html">🔧 API Reference</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <div class="content-section">
+        <h1>Documentación - GenOptim</h1>
+        <p>Una librería Python para implementar algoritmos genéticos de
+          optimización.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>Instalacion</h2>
+        <pre><code>pip install -i https://test.pypi.org/simple/ GenOptim</code></pre>
+        <div class="note">
+          <strong>Requisitos:</strong>
+          <ul>
+            <li>Python 3.6 o superior</li>
+            <li>NumPy</li>
+            <li>Matplotlib</li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-section">
+        <h2>Guia de Inicio Rapido</h2>
+        <p>Ejemplo básico de cómo usar la librería para optimizar una función
+          simple:</p>
+        <pre><code>import GenOptim
+
+# Definir función objetivo (minimizar x²)
+def funcion_objetivo(x):
+    return x**2
+
+# Ejecutar el algoritmo
+mejor_solucion = GenOptim(
+    tamanoPoblacion=50,
+    generaciones=100,
+    valorMin=-10,
+    valorMax=10,
+    tamanoElitismo=2,
+    funcionObjetivo=funcion_objetivo,
+    metodoCruce=crucePromedio,
+    metodoSeleccion=seleccion_por_torneo,
+    tasaCruce=0.8,
+    tasaMutacion=0.1
+)
+        </code></pre>
+      </div>
+
+      <div class="content-section">
+        <h2>Conceptos Básicos</h2>
+        <h3>¿Qué es un Algoritmo Genético?</h3>
+        <p>Los algoritmos genéticos son métodos de optimización inspirados en la
+          evolución natural. Utilizan conceptos como:</p>
+        <ul>
+          <li><strong>Población:</strong> Conjunto de posibles soluciones</li>
+          <li><strong>Selección:</strong> Proceso de elegir los mejores
+            individuos</li>
+          <li><strong>Cruce:</strong> Combinación de soluciones para crear
+            nuevas</li>
+          <li><strong>Mutación:</strong> Cambios aleatorios para mantener
+            diversidad</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>Componentes Principales</h2>
+
+        <h3>1. Métodos de Selección</h3>
+        <p>La librería ofrece tres métodos de selección diferentes:</p>
+        <ul>
+          <li><strong>Torneo:</strong> Selecciona el mejor de un grupo
+            aleatorio</li>
+          <li><strong>Ruleta:</strong> Probabilidad proporcional al fitness</li>
+          <li><strong>Rango:</strong> Selección basada en el ranking</li>
+        </ul>
+        <pre><code># Ejemplo de selección por torneo
+from algoritmos_geneticos import seleccion_por_torneo
+
+seleccionado = seleccion_por_torneo(poblacion, puntuaciones, k=3)</code></pre>
+
+        <h3>2. Métodos de Cruce</h3>
+        <p>Disponemos de tres operadores de cruce:</p>
+        <ul>
+          <li><strong>Promedio:</strong> Media de los padres</li>
+          <li><strong>Uniforme:</strong> Selección aleatoria de genes</li>
+          <li><strong>Segmento:</strong> Combinación ponderada</li>
+        </ul>
+        <pre><code># Ejemplo de cruce promedio
+from algoritmos_geneticos import crucePromedio
+
+hijo = crucePromedio(padre, madre, tasaCruce=0.8)</code></pre>
+      </div>
+
+      <div class="content-section">
+        <h2>Guías Avanzadas</h2>
+        
+        <h3>Ajuste de Parámetros</h3>
+        <p>Recomendaciones para ajustar los parámetros del algoritmo:</p>
+        <ul>
+            <li><strong>Tamaño de población:</strong> Entre 50 y 200 individuos</li>
+            <li><strong>Tasa de cruce:</strong> Entre 0.7 y 0.9</li>
+            <li><strong>Tasa de mutación:</strong> Entre 0.01 y 0.1</li>
+            <li><strong>Elitismo:</strong> Entre 1% y 10% de la población</li>
+        </ul>
+        
+        <div class="note">
+            <strong>Nota:</strong> Estos valores son orientativos y pueden necesitar ajustes según el problema específico.
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>Preguntas Frecuentes (FAQ)</h2>
+        <h3>¿Por qué el algoritmo no converge?</h3>
+        <p>Posibles razones:</p>
+        <ul>
+            <li>Población inicial demasiado pequeña</li>
+            <li>Pocas generaciones</li>
+            <li>Tasas de mutación/cruce inadecuadas</li>
+            <li>Función objetivo mal definida</li>
+        </ul>
+
+        <h3>¿Cómo mejorar la convergencia?</h3>
+        <ul>
+            <li>Aumentar el tamaño de la población</li>
+            <li>Ajustar las tasas de mutación y cruce</li>
+            <li>Implementar elitismo</li>
+            <li>Usar diferentes métodos de selección</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>Consejos y Mejores Prácticas</h2>
+        <ul>
+            <li>Siempre realizar múltiples ejecuciones debido a la naturaleza estocástica del algoritmo</li>
+            <li>Monitorear la diversidad de la población</li>
+            <li>Guardar los mejores individuos encontrados</li>
+            <li>Ajustar parámetros gradualmente</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Importante:</strong> Los algoritmos genéticos no garantizan encontrar el óptimo global, pero suelen encontrar buenas soluciones en tiempo razonable.
+        </div>
+      </div>
+      <div class="scroll-top-btn" onclick="scrollToTop()">↑</div>
+      <script src="./js/functions.js"></script>
+    </body>
+  </html>

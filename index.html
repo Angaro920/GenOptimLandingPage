@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GenOptim</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2 style="color: white;">GenOptim</h2>
+      <ul>
+        <li><a href="#instalacion">📦 Instalación</a></li>
+        <li><a href="documentacion.html">📚 Documentación</a></li>
+        <li><a href="#ejemplo">💡 Ejemplos</a></li>
+        <li><a href="apiReferenfe.html">🔧 API Reference</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <div class="content-section">
+        <h1>GenOptim</h1>
+        <h2>Una libreria de algoritmo genetico</h2>
+        <p>Una librería Python potente y fácil de usar para tus proyectos.</p>
+        <div style="margin-top: 15px">
+          <span class="tag">Python 3.6+</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">MIT License</span>
+        </div>
+      </div>
+
+      <div class="content-section" id="instalacion">
+        <h2>Instalación Rápida</h2>
+        <pre><code>pip install -i https://test.pypi.org/simple/ GenOptim</code></pre>
+      </div>
+
+      <div class="content-section" id="ejemplo">
+        <h2>Ejemplo de Uso</h2>
+        <pre><code># Importar libreria
+
+import GenOptim
+
+#Definir funcion objetivo
+
+def funcionObjetivo():
+    return x**2
+
+# Crear variable que llame a la funcion
+
+Mejor individuo = GenOptim.algoritmo_genetico(
+
+    #Configurar parametros
+
+    tamanoPoblacion=100,
+    generaciones=20,
+    valorMin=-10,
+    valorMax=10,
+    tamanoElitismo=2,
+    funcionObjetivo=funcionObjetivo,
+    metodoCruce= GenOptim.cruceSegmento,
+    metodoSeleccion=GenOptim.seleccion_por_rango,
+    tasaCruce=0.2,
+    tasaMutacion=0.9
+
+    )
+
+# Al ejecutar el programa el algoritmo se ejecutara de forma automatica
+NO hace falta hacer el llamado
+</code></pre>
+      </div>
+    </div>
+
+    <div class="scroll-top-btn" onclick="scrollToTop()">↑</div>
+  </body>
+  <script src="js/functions.js"></script>
+</html>

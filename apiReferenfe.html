@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>API Reference - GenOptim</title>
+  </head>
+  <body>
+    <!-- Sidebar Section -->
+    <div class="sidebar">
+      <h2 style="color: white;"><a href="index.html">GenOptim</a></h2>
+      <ul>
+        <a href="index.html#instalacion"> <li>📦 Instalación</li></a>
+        <li><a href="documentacion.html">📚 Documentación</a></li>
+        <li><a href="index.html#ejemplo">💡 Ejemplos</a></li>
+        <li><a href="apiReferenfe.html">🔧 API Reference</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <div class="content-section">
+        <h1>API Reference - GenOptim</h1>
+        <p>
+          Documentación completa de la librería de algoritmos genéticos para
+          optimización.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="category">Funciones Principales</h2>
+
+        <div class="method">
+          <h3>algoritmo_genetico()</h3>
+          <p>Función principal que ejecuta el algoritmo genético completo.</p>
+
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li>
+                <code>tamanoPoblacion</code> (int): Número de individuos en la
+                población
+              </li>
+              <li>
+                <code>generaciones</code> (int): Número de generaciones a
+                ejecutar
+              </li>
+              <li>
+                <code>valorMin</code> (float): Valor mínimo permitido para los
+                individuos
+              </li>
+              <li>
+                <code>valorMax</code> (float): Valor máximo permitido para los
+                individuos
+              </li>
+              <li>
+                <code>tamanoElitismo</code> (int): Número de mejores individuos
+                que pasan directamente a la siguiente generación
+              </li>
+              <li>
+                <code>funcionObjetivo</code> (function): Función que evalúa la
+                aptitud de cada individuo
+              </li>
+              <li>
+                <code>metodoCruce</code> (function): Método de cruce a utilizar
+              </li>
+              <li>
+                <code>metodoSeleccion</code> (function): Método de selección a
+                utilizar
+              </li>
+              <li>
+                <code>tasaCruce</code> (float): Probabilidad de cruce entre 0 y
+                1
+              </li>
+              <li>
+                <code>tasaMutacion</code> (float): Probabilidad de mutación
+                entre 0 y 1
+              </li>
+            </ul>
+          </div>
+
+          <div class="return-value">
+            <strong>Retorna:</strong>
+            <p>
+              El mejor individuo encontrado después de todas las generaciones
+            </p>
+          </div>
+
+          <pre><code>mejor_solucion = algoritmo_genetico(
+    tamanoPoblacion=50,
+    generaciones=100,
+    valorMin=-10,
+    valorMax=10,
+    tamanoElitismo=2,
+    funcionObjetivo=lambda x: x**2,  # Ejemplo: minimizar x²
+    metodoCruce=crucePromedio,
+    metodoSeleccion=seleccion_por_torneo,
+    tasaCruce=0.8,
+    tasaMutacion=0.1
+)</code></pre>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="category">Métodos de Selección</h2>
+
+        <div class="method">
+          <h3>seleccion_por_torneo()</h3>
+          <p>Selecciona individuos mediante el método de torneo.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>poblacion</code> (list): Lista de individuos</li>
+              <li>
+                <code>puntuaciones</code> (list): Lista de puntuaciones
+                correspondientes
+              </li>
+              <li>
+                <code>k</code> (int, opcional): Tamaño del torneo. Por defecto 3
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method">
+          <h3>seleccion_por_ruleta()</h3>
+          <p>Selecciona individuos mediante el método de la ruleta.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>poblacion</code> (list): Lista de individuos</li>
+              <li>
+                <code>puntuaciones</code> (list): Lista de puntuaciones
+                correspondientes
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method">
+          <h3>seleccion_por_rango()</h3>
+          <p>Selecciona individuos basándose en su rango en la población.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>poblacion</code> (list): Lista de individuos</li>
+              <li>
+                <code>puntuaciones</code> (list): Lista de puntuaciones
+                correspondientes
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="category">Métodos de Cruce</h2>
+
+        <div class="method">
+          <h3>crucePromedio()</h3>
+          <p>Realiza el cruce promediando los valores de los padres.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>padre</code> (float): Primer individuo padre</li>
+              <li><code>madre</code> (float): Segundo individuo madre</li>
+              <li><code>tasaCruce</code> (float): Probabilidad de cruce</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method">
+          <h3>cruceUniforme()</h3>
+          <p>
+            Realiza el cruce seleccionando aleatoriamente valores de los padres.
+          </p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>padre</code> (float): Primer individuo padre</li>
+              <li><code>madre</code> (float): Segundo individuo madre</li>
+              <li><code>tasaCruce</code> (float): Probabilidad de cruce</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method">
+          <h3>cruceSegmento()</h3>
+          <p>
+            Realiza el cruce mediante una combinación ponderada de los padres.
+          </p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>padre</code> (float): Primer individuo padre</li>
+              <li><code>madre</code> (float): Segundo individuo madre</li>
+              <li><code>tasaCruce</code> (float): Probabilidad de cruce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2 class="category">Funciones Auxiliares</h2>
+
+        <div class="method">
+          <h3>crear_individuo()</h3>
+          <p>Crea un individuo aleatorio dentro del rango especificado.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>valorMin</code> (float): Valor mínimo permitido</li>
+              <li><code>valorMax</code> (float): Valor máximo permitido</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method">
+          <h3>crear_poblacion()</h3>
+          <p>Crea una población inicial de individuos aleatorios.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>tamano</code> (int): Tamaño de la población</li>
+              <li><code>valorMin</code> (float): Valor mínimo permitido</li>
+              <li><code>valorMax</code> (float): Valor máximo permitido</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="method">
+          <h3>mutar()</h3>
+          <p>Aplica mutación a un individuo con cierta probabilidad.</p>
+          <div class="parameters">
+            <strong>Parámetros:</strong>
+            <ul>
+              <li><code>individuo</code> (float): Individuo a mutar</li>
+              <li>
+                <code>tasaMutacion</code> (float): Probabilidad de mutación
+              </li>
+              <li><code>valorMin</code> (float): Valor mínimo permitido</li>
+              <li><code>valorMax</code> (float): Valor máximo permitido</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-top-btn" onclick="scrollToTop()">↑</div>
+    <script src="./js/functions.js"></script>
+    <!-- End of main-content -->
+  </body>
+</html>
